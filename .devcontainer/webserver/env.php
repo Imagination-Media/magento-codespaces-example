@@ -136,5 +136,10 @@ return [
             ]
         ],
         'consumers_wait_for_messages' => 0
+    ],
+    'deployment' => [
+        'blue_green' => [
+            'enabled' => true
+        ]
     ]
 ];
