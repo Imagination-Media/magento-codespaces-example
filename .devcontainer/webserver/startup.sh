@@ -50,6 +50,21 @@ xdebug.log=/tmp/xdebug.log
 ' > /usr/local/etc/php/conf.d/xdebug.ini
 fi
 
+# Install Blackfire 
+if [[ -z "$blackfire" || "$blackfire" == "0" ]]; then
+    echo "No blackfire"
+else
+    echo "Enabling blackfire"
+    
+    #Install blackfire
+    apt install blackfire -y
+    apt install blackfire-php -y
+    service blackfire-agent stop
+    chown -R nginx:nginx /etc/blackfire/
+    mkdir -p /var/run/blackfire/ && chown -R nginx:nginx /var/run/blackfire/
+    chmod -R 775 /var/run/blackfire
+fi
+
 # Start SSH
 service ssh start
 

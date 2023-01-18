@@ -25,6 +25,11 @@ RUN chmod 775 /usr/local/bin/phpcbf.phar
 RUN mkdir -p /var/www/html/app/etc/
 COPY env.php /var/www/env.php
 
+# Blackfire
+RUN wget -q -O - https://packages.blackfire.io/gpg.key | dd of=/usr/share/keyrings/blackfire-archive-keyring.asc
+RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/blackfire-archive-keyring.asc] http://packages.blackfire.io/debian any main" | tee /etc/apt/sources.list.d/blackfire.list
+RUN apt update
+
 # Execute the startup bash script on the startup
 COPY startup.sh /root/init.sh
 ENTRYPOINT ["/bin/bash", "/root/init.sh"]

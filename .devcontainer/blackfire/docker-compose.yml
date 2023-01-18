@@ -1,0 +1,68 @@
+#File to be used when debugging with xDebug
+version: "3.9"
+services:
+  webserver:
+    build:
+      context: ../webserver
+    volumes:
+      - ../../:/var/www/html
+    expose:
+      - "22"
+      - "80"
+      - "8307"
+      - "9000"
+      - "9001"
+      - "9002"
+      - "9003"
+    depends_on:
+      - db
+      - redis
+      - rabbitmq
+      - elasticsearch
+    environment:
+      - blackfire=1
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+      
+  rabbitmq:
+    image: rabbitmq:3.8
+    expose:
+      - "5672"
+      
+  elasticsearch:
+    build:
+      context: ../elasticsearch
+    expose:
+      - "9200"
+    environment:
+      discovery.type: single-node   
+  
+  redis:
+    image: redis:6
+    expose:
+      - "6379"
+  
+  db:
+    image: mariadb:10.4
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: magento
+      TZ: UTC
+      MYSQL_USER: magento
+      MYSQL_PASSWORD: magento
+    volumes:
+      - db-data:/var/lib/mysql/data
+      - ../mysql-dump:/docker-entrypoint-initdb.d
+    expose:
+      - "3306"
+  
+  phpmyadmin:
+    image: phpmyadmin:latest
+    expose:
+      - "80"
+    environment:
+      PMA_ABSOLUTE_URI: "http://catbirdnyc.test/phpmyadmin/"
+
+  # Persist database information after your VM shuts down
+volumes:
+  db-data:
