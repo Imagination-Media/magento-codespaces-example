@@ -8,6 +8,7 @@ services:
     expose:
       - "22"
       - "80"
+      - "8025"
       - "9000"
       - "9001"
       - "9002"
@@ -17,6 +18,8 @@ services:
       - redis
       - rabbitmq
       - elasticsearch
+    environment:
+      - mailhog=1
       
   rabbitmq:
     image: rabbitmq:3.8

@@ -20,6 +20,7 @@ services:
       - rabbitmq
       - elasticsearch
     environment:
+      - mailhog=1
       - blackfire=1
     extra_hosts:
       - "host.docker.internal:host-gateway"
