@@ -24,7 +24,6 @@
     "php.validate.executablePath": "/usr/local/bin/php",
     "php.suggest.basic": false,
     "php.executablePath": "/usr/local/bin/php",
-    "php-cs-fixer.executablePath": "/usr/local/bin/phpcs.phar",
     "intelephense.files.exclude": [
       "**/.js",
       "**/.png",
@@ -51,8 +50,8 @@
     },
     "intelephense.diagnostics.undefinedTypes": false,
     "intelephense.telemetry.enabled": false,
-    "intelephense.files.maxSize": 100000000,
-    "intelephense.maxMemory": 512,
+    "intelephense.files.maxSize": 2000000,
+    "intelephense.maxMemory": 8096,
     "intelephense.diagnostics.implementationErrors": false,
     "intelephense.files.associations": [
         "*.php",
@@ -75,13 +74,29 @@
       "**/node_modules" : true
     },
     "intelephense.rename.exclude": [],
-	  "intelephense.references.exclude": []
+	  "intelephense.references.exclude": [],
+    "phpcs.standard": "PSR2",
+    "phpcs.enable": true,
+    "phpcs.executablePath" : "/usr/local/bin/phpcs",
+    "phpcs.autoConfigSearch": true,
+    "phpcs.ignorePatterns": [
+        "vendor/*",
+        "pub/*",
+        "lib/*",
+        "setup/*"
+    ],
+    "phpcs.showWarnings": true,
+    "phpcs.showSources": true,
+    "phpcs.lintOnSave": true,
+    "phpcs.lintOnlyOpened": true,
+    "phpcs.lintOnType": false,
+    "phpcs.lintOnOpen": false
   },
   "extensions": [
       "xdebug.php-debug",
       "bmewburn.vscode-intelephense-client",
       "jerrylopez.magento2-snippets",
       "benoitalix.hyva-vscode-snippets",
-      "junstyle.php-cs-fixer"
+      "shevaua.phpcs"
   ]
 }
