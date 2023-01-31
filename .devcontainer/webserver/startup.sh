@@ -7,7 +7,7 @@ chown nginx:nginx /var/www/html/app/etc/env.php
 
 mkdir -p /tmp/sourceguardian/
 mkdir -p /usr/local/lib/php/extensions/no-debug-non-zts-20190902
-mkdir -p /tmp/sourceguardian
+mkdir -p /tmp/ioncube/
 
 isArch="$(arch)"
 archCode="aarch64"
