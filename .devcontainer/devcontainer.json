@@ -74,7 +74,7 @@
       "**/node_modules" : true
     },
     "intelephense.rename.exclude": [],
-	  "intelephense.references.exclude": [],
+    "intelephense.references.exclude": [],
     "phpcs.standard": "PSR2",
     "phpcs.enable": true,
     "phpcs.executablePath" : "/usr/local/bin/phpcs",
@@ -97,6 +97,7 @@
       "bmewburn.vscode-intelephense-client",
       "jerrylopez.magento2-snippets",
       "benoitalix.hyva-vscode-snippets",
-      "shevaua.phpcs"
+      "shevaua.phpcs",
+      "GitHub.copilot"
   ]
 }
