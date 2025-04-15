@@ -83,15 +83,21 @@ You may need to adjust the following in the `devcontainer.json` file:
 
 ## Configuring xDebug
 
-The xDebug environment comes pre-configured for PHP debugging. To use it:
+xDebug is a powerful tool to debug code. It helps developers to understand where the code is going through, the variables, their types, etc.
 
-1. Select the xDebug environment when creating your Codespace.
-2. The VS Code xDebug extension is automatically installed and configured.
-3. Set breakpoints in your code by clicking in the gutter next to line numbers.
-4. Start debugging by clicking the "Run and Debug" icon in the VS Code sidebar and selecting "Listen for xDebug".
-5. Execute your code (load a page in the browser) to trigger the debugger.
+![xDebug Verification](./images/xdebug/xdebug_verification.png)
 
-xDebug is configured with the following settings:
+In order to use xDebug with GitHub codespaces we first need to make sure we created an environment using the xDebug template, otherwise, it won't work (you can confirm if your environment is using xDebug by running the php -v command).
+
+The default port set is the 9003 port as one of the forwarded ports. That's the default port for xDebug connections (check [9) GitHub Codespaces](https://imgmedia.atlassian.net/wiki/spaces/IMDOC/pages/2506588252/9+GitHub+Codespaces) | [Forwarding Ports](https://imgmedia.atlassian.net/wiki/spaces/IMDOC/pages/2510651476/xDebug)).
+
+Once all of that is done, we just need to open Visual Studio Code, go to the "Run" option at the top, and then click on the "Add configuration" option. It will either request us to choose the programming language (in this case PHP) or will automatically open the launch config file for us.
+
+![xDebug Launch File](./images/xdebug/xdebug_launch_file.png)
+
+To start to accept xDebug connections we just need to go to the Debug tab on the left of Visual Studio Code, and click on the title "Listen for Xdebug" at the top. An orange bar will show up at the bottom of the screen, indicating that VS Code is listening for any xDebug connections.
+
+The xDebug environment comes pre-configured with the following settings:
 
 ```
 xdebug.mode=debug
@@ -100,9 +106,53 @@ xdebug.client_port=9003
 xdebug.start_with_request=yes
 ```
 
+To use xDebug:
+
+1. Select the xDebug environment when creating your Codespace.
+2. The VS Code xDebug extension is automatically installed and configured.
+3. Set breakpoints in your code by clicking in the gutter next to line numbers.
+4. Start debugging by clicking the "Run and Debug" icon in the VS Code sidebar and selecting "Listen for xDebug".
+5. Execute your code (load a page in the browser) to trigger the debugger.
+
 ## Configuring Blackfire
 
-The Blackfire environment is set up for performance profiling:
+![Blackfire Overview](./images/blackfire/blackfire_overview.png)
+
+Blackfire is a tool and a service that allows us to monitor, profile and test our applications even before it is released in production. But we can also get actionable insights to improve your code rather than spend time figuring out what's wrong. It ensures optimal performance and user experience for our web applications.
+
+This was part of the Magento Cloud package, so all cloud customers also had Blackfire. Some of our Magento customers need performance improvements and code refactoring to make the website faster and more reliable, so that's the moment we use Blackfire.
+
+### Using Blackfire
+
+To use Blackfire we need to use the Blackfire template inside the codespaces configuration. It has Blackfire installed, and then, it's just a matter of setting the Blackfire keys and we are ready to go.
+
+![Blackfire Server Keys](./images/blackfire/blackfire_server_keys.png)
+
+Then, once you have stood up the environment we can proceed with setting up the Blackfire keys. The URL [https://blackfire.io/my/environments](https://blackfire.io/my/environments) will show you what are your available environments. Inside the environment settings, you can see the "Environment Credentials" option, there you will get the server key and server ID.
+
+Accessing the link [https://blackfire.io/docs/up-and-running/installation?action=install&mode=full&version=latest&mode=full&location=local&os=debian&language=php&agent=537692290-04e2-4400-953a-740803c2958c#install-agent-osx](https://blackfire.io/docs/up-and-running/installation?action=install&mode=full&version=latest&mode=full&location=local&os=debian&language=php&agent=537692290-04e2-4400-953a-740803c2958c#install-agent-osx), you can see the commands to set up the Blackfire server keys and also the agent key.
+
+The server keys command will be something like this (without sudo):
+
+```
+blackfire agent:config --server-id=53769229-04e2-4400-953a-740803c2958c --server-token=XXXXXXXXXXXXXXXXXXXX
+```
+
+And the agent commands will be like this:
+
+```
+blackfire client:config --client-id=ba1a6cab-775a-4d44-a8e3-ad99706ce518 --client-token=XXXXXXXXXXXXXXXXXXXX
+```
+
+Once both keys are set, you can initialize the blackfire agent by running:
+
+```
+blackfire agent -vvv
+```
+
+It will initialize the agent and will be ready to listen to any new connections. Once that's ready, you can use the browser plugin or any Blackfire CLI command and start to profile your application.
+
+To use Blackfire:
 
 1. Select the Blackfire environment when creating your Codespace.
 2. Configure your Blackfire credentials in the environment variables.
@@ -142,6 +192,49 @@ The following ports are automatically forwarded:
 5. Choose your environment configuration (standard, xDebug, or Blackfire)
 6. Wait for the environment to build and start
 7. Start developing!
+
+## Committing Git Changes
+
+![Git Changes](./images/git/git_changes.png)
+
+To commit and push changes to our feature branch from our codespaces environment, we can use the source control tab from Visual Studio Code that lists all of our changes, allowing us to commit and push our changes, our event the terminal that also has GIT and will push changes to our branch.
+
+The source control tab in VS Code provides a graphical interface for managing your Git operations:
+
+1. Click on the Source Control icon in the left sidebar (or press Ctrl+Shift+G)
+2. Review your changes in the "Changes" section
+3. Hover over files and click the + icon to stage them
+4. Enter a commit message in the text field at the top
+5. Click the checkmark icon to commit
+6. Use the "..." menu to access more Git options, including push
+
+Alternatively, you can use Git commands in the terminal:
+
+```bash
+# Stage specific files
+git add path/to/file
+
+# Stage all changes
+git add .
+
+# Commit changes
+git commit -m "Your commit message"
+
+# Push to remote branch
+git push origin your-branch-name
+```
+
+## Making Environment Public
+
+![Making Public](./images/public/making_public.png)
+
+Sometimes we need to make our environment public, meaning it can be accessed and tested by others, not only our GitHub user.
+
+To do that we can right-click on the 80 port, and use the option Port Visibility > Public.
+
+It will generate an URL for our environment, so we must set this new URL as the base URL of our environment. Once we change that we will be able to access it out of our GitHub account.
+
+This is helpful to share the environment with the QA team, the project manager, or even the client. They can test directly in our environment.
 
 ## Additional Resources
 
