@@ -230,6 +230,19 @@ It will generate an URL for our environment, so we must set this new URL as the 
 
 This is helpful to share the environment with the QA team, the project manager, or even the client. They can test directly in our environment.
 
+## VS Code Extensions
+
+The Codespaces environment comes pre-configured with several VS Code extensions to enhance your Magento development experience:
+
+- [PHP Debug](https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug): Debug support for PHP with Xdebug.
+- [Intelephense](https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client): PHP code intelligence with advanced autocompletion, refactoring, and analysis.
+- [Magento 2 Snippets](https://marketplace.visualstudio.com/items?itemName=jerrylopez.magento2-snippets): Code snippets for Magento 2 development.
+- [Hyvä Themes Snippets](https://marketplace.visualstudio.com/items?itemName=benoitalix.hyva-vscode-snippets): Snippets for Hyvä Themes development in Magento 2.
+- [PHP CodeSniffer](https://marketplace.visualstudio.com/items?itemName=shevaua.phpcs): PHP CodeSniffer integration for VS Code to ensure code quality.
+- [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot): AI-powered code suggestions to help you write code faster.
+
+These extensions are automatically installed when you create a new Codespace, providing a ready-to-use development environment with all the tools you need for efficient Magento development.
+
 ## Additional Resources
 
 - [GitHub Codespaces Documentation](https://docs.github.com/en/codespaces)
