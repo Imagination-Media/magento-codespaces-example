@@ -2,8 +2,6 @@
 
 This repository provides a ready-to-use GitHub Codespaces configuration for Adobe Commerce/Magento 2 development. It includes pre-configured environments for standard development, xDebug debugging, and Blackfire profiling.
 
-![GitHub Codespaces Demo](./images/github_codespaces_demo.png)
-
 ## What is GitHub Codespaces?
 
 GitHub Codespaces is a cloud-based development environment that allows developers to code, test, and debug applications directly from their browser. It provides a fully configured development environment in the cloud, eliminating the need for local setup and configuration.
@@ -126,8 +124,6 @@ This was part of the Magento Cloud package, so all cloud customers also had Blac
 
 To use Blackfire we need to use the Blackfire template inside the codespaces configuration. It has Blackfire installed, and then, it's just a matter of setting the Blackfire keys and we are ready to go.
 
-![Blackfire Server Keys](./images/blackfire/blackfire_server_keys.png)
-
 Then, once you have stood up the environment we can proceed with setting up the Blackfire keys. The URL [https://blackfire.io/my/environments](https://blackfire.io/my/environments) will show you what are your available environments. Inside the environment settings, you can see the "Environment Credentials" option, there you will get the server key and server ID.
 
 Accessing the link [https://blackfire.io/docs/up-and-running/installation?action=install&mode=full&version=latest&mode=full&location=local&os=debian&language=php&agent=537692290-04e2-4400-953a-740803c2958c#install-agent-osx](https://blackfire.io/docs/up-and-running/installation?action=install&mode=full&version=latest&mode=full&location=local&os=debian&language=php&agent=537692290-04e2-4400-953a-740803c2958c#install-agent-osx), you can see the commands to set up the Blackfire server keys and also the agent key.
@@ -135,13 +131,13 @@ Accessing the link [https://blackfire.io/docs/up-and-running/installation?action
 The server keys command will be something like this (without sudo):
 
 ```
-blackfire agent:config --server-id=53769229-04e2-4400-953a-740803c2958c --server-token=XXXXXXXXXXXXXXXXXXXX
+blackfire agent:config --server-id=xxxxxxxxxx --server-token=XXXXXXXXXXXXXXXXXXXX
 ```
 
 And the agent commands will be like this:
 
 ```
-blackfire client:config --client-id=ba1a6cab-775a-4d44-a8e3-ad99706ce518 --client-token=XXXXXXXXXXXXXXXXXXXX
+blackfire client:config --client-id=xxxxxxxxxxx --client-token=XXXXXXXXXXXXXXXXXXXX
 ```
 
 Once both keys are set, you can initialize the blackfire agent by running:
@@ -194,8 +190,6 @@ The following ports are automatically forwarded:
 7. Start developing!
 
 ## Committing Git Changes
-
-![Git Changes](./images/git/git_changes.png)
 
 To commit and push changes to our feature branch from our codespaces environment, we can use the source control tab from Visual Studio Code that lists all of our changes, allowing us to commit and push our changes, our event the terminal that also has GIT and will push changes to our branch.
 
