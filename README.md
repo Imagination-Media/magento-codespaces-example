@@ -2,7 +2,8 @@
 
 This repository provides a ready-to-use GitHub Codespaces configuration for Adobe Commerce/Magento 2 development. It includes pre-configured environments for standard development, xDebug debugging, and Blackfire profiling.
 
-## What is GitHub Codespaces?
+
+## :cloud: What is GitHub Codespaces?
 
 GitHub Codespaces is a cloud-based development environment that allows developers to code, test, and debug applications directly from their browser. It provides a fully configured development environment in the cloud, eliminating the need for local setup and configuration.
 
@@ -16,7 +17,8 @@ Key features of GitHub Codespaces include:
 
 In summary, developers can easily stand-up new development environments based on pre-created templates/cellphone with Visual Studio Code in the browser, meaning they can use any device to write code, even a tablet or smartphone.
 
-## Why GitHub Codespaces is Better Than Traditional Docker Environments
+
+## :rocket: Why GitHub Codespaces is Better Than Traditional Docker Environments
 
 While Docker has revolutionized development environments, GitHub Codespaces offers several advantages:
 
@@ -31,7 +33,8 @@ While Docker has revolutionized development environments, GitHub Codespaces offe
 9. **Cross-Platform Compatibility**: Work from any operating system with a web browser, including mobile devices.
 10. **Reduced Maintenance**: No need to maintain Docker installations or troubleshoot container issues.
 
-## Container Images
+
+## :package: Container Images
 
 This Codespaces environment uses container images created and managed by the [Imagination Media Magento Kubernetes repository](https://github.com/Imagination-Media/magento-k8s). These images are specifically optimized for Magento/Adobe Commerce development and include all necessary tools and extensions.
 
@@ -49,7 +52,8 @@ The following PHP versions are supported:
 
 Each PHP version is available in both AMD64 and ARM64 architectures, ensuring compatibility with various development environments.
 
-## Environment Configurations
+
+## :gear: Environment Configurations
 
 This repository includes three different environment configurations:
 
@@ -59,7 +63,8 @@ This repository includes three different environment configurations:
 
 You can choose the appropriate environment based on your development needs.
 
-## Setting Up for a Magento/Adobe Commerce Project
+
+## :wrench: Setting Up for a Magento/Adobe Commerce Project
 
 To use this Codespaces configuration for your Magento/Adobe Commerce project:
 
@@ -79,7 +84,8 @@ You may need to adjust the following in the `devcontainer.json` file:
 - Database configuration
 - Additional extensions or tools
 
-## Configuring xDebug
+
+## :bug: Configuring xDebug
 
 xDebug is a powerful tool to debug code. It helps developers to understand where the code is going through, the variables, their types, etc.
 
@@ -112,7 +118,8 @@ To use xDebug:
 4. Start debugging by clicking the "Run and Debug" icon in the VS Code sidebar and selecting "Listen for xDebug".
 5. Execute your code (load a page in the browser) to trigger the debugger.
 
-## Configuring Blackfire
+
+## :zap: Configuring Blackfire
 
 ![Blackfire Overview](./images/blackfire/blackfire_overview.png)
 
@@ -156,7 +163,8 @@ To use Blackfire:
 
 Blackfire helps identify performance bottlenecks and optimize your Magento application.
 
-## Available Tools
+
+## :toolbox: Available Tools
 
 The Codespaces environments include several tools to help with Magento development:
 
@@ -165,11 +173,13 @@ The Codespaces environments include several tools to help with Magento developme
 - **magepack**: Tool for optimizing Magento 2 frontend performance via JavaScript bundling.
 - **corediff**: Security tool by Sansec that verifies if Magento core code was modified/compromised.
 
-## Database Setup
+
+## :floppy_disk: Database Setup
 
 The environment includes a MariaDB database pre-configured for Magento. The database is initialized with the SQL dump from the `mysql-dump` directory.
 
-## Port Forwarding
+
+## :electric_plug: Port Forwarding
 
 The following ports are automatically forwarded:
 
@@ -179,7 +189,8 @@ The following ports are automatically forwarded:
 - **15672**: RabbitMQ Management
 - **8025**: MailHog (for email testing)
 
-## Getting Started
+
+## :checkered_flag: Getting Started
 
 1. Navigate to your GitHub repository
 2. Click the "Code" button
@@ -189,7 +200,8 @@ The following ports are automatically forwarded:
 6. Wait for the environment to build and start
 7. Start developing!
 
-## Committing Git Changes
+
+## :arrows_clockwise: Committing Git Changes
 
 To commit and push changes to our feature branch from our codespaces environment, we can use the source control tab from Visual Studio Code that lists all of our changes, allowing us to commit and push our changes, our event the terminal that also has GIT and will push changes to our branch.
 
@@ -218,7 +230,8 @@ git commit -m "Your commit message"
 git push origin your-branch-name
 ```
 
-## Making Environment Public
+
+## :globe_with_meridians: Making Environment Public
 
 ![Making Public](./images/public/making_public.png)
 
@@ -230,7 +243,8 @@ It will generate an URL for our environment, so we must set this new URL as the 
 
 This is helpful to share the environment with the QA team, the project manager, or even the client. They can test directly in our environment.
 
-## VS Code Extensions
+
+## :electric_plug: VS Code Extensions
 
 The Codespaces environment comes pre-configured with several VS Code extensions to enhance your Magento development experience:
 
@@ -243,7 +257,8 @@ The Codespaces environment comes pre-configured with several VS Code extensions 
 
 These extensions are automatically installed when you create a new Codespace, providing a ready-to-use development environment with all the tools you need for efficient Magento development.
 
-## Additional Resources
+
+## :books: Additional Resources
 
 - [GitHub Codespaces Documentation](https://docs.github.com/en/codespaces)
 - [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview)
